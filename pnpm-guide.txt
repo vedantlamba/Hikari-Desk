@@ -1,0 +1,41 @@
+Error - pnpm : File C:\Users\itach\AppData\Roaming\npm\pnpm.ps1 cannot be loaded because running scripts is disabled on this system. For more 
+information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ pnpm add turbo --global
++ ~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+
+
+You can resolve this by temporarily changing the execution policy to allow scripts to run. Here’s how to do it:
+
+Open PowerShell as Administrator:
+
+Search for "PowerShell" in the Start menu, right-click on it, and select Run as Administrator.
+
+Check the Current Execution Policy (optional):
+
+You can check the current policy by running this command in the PowerShell window:
+
+Get-ExecutionPolicy
+
+
+Set Execution Policy to Allow Scripts:
+
+Run the following command to allow scripts to run temporarily:
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+
+This only changes the policy for the current PowerShell session, so once you close PowerShell, the setting will revert.
+
+Run the Command Again:
+
+Now, try running the pnpm dlx shadcn@canary init command again.
+
+Optional - Revert Execution Policy:
+
+If you want to revert to the default policy after running your command, simply close PowerShell. If you want to change the policy permanently, you can run:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Restricted
+
