@@ -11,6 +11,8 @@ export const getMany = query({
     if (!ordId) {
       throw new Error("Missing Organization");
     }
+
+    // throw new Error("Tracking Test");
     const users = await ctx.db.query("users").collect();
 
     return users;
