@@ -11,9 +11,10 @@ export default function Page() {
     <>
       <div className="flex flex-col items-center justify-center min-h-svh">
         <div>app/web</div>
+
         <UserButton />
         {/* <OrganizationSwitcher hidePersonal /> */}
-        <OrganizationSwitcher/>
+        <OrganizationSwitcher />
         <div className="mx-auto text-balance">
           {JSON.stringify(users, null, 2)}
         </div>
